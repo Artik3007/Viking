@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>О нас — лаборатория «ВИКИНГ»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/main.js" defer></script>
+</head>
+<body class="page-o-nas">
+<div class="pt-in" style="overflow-x: hidden">
+<div style="position: relative; height: 0; font-family: Inter, 'Helvetica Neue', Arial, sans-serif; color: #030303">
+  <div style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: min(420px, calc(100% - 32px)); height: 47px; box-sizing: border-box; padding: 0 12px 0 18px; border-radius: 99px; background: rgba(255,255,255,0.94); border: 1px solid rgba(231,236,238,0.9); box-shadow: 0 4px 20px rgba(96,125,139,0.12); display: flex; align-items: center; justify-content: space-between; z-index: 60">
+    <a href="index.html" aria-label="ВИКИНГ — на главную" style="display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#1f8724" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 3h7M11 3v7L4.8 20.6A1.6 1.6 0 0 0 6.2 23h13.6a1.6 1.6 0 0 0 1.4-2.4L15 10V3"/><path d="M7.6 16.5h10.8"/><circle cx="12" cy="19.6" r="0.9" fill="#1f8724"/><circle cx="15.4" cy="18.4" r="0.6" fill="#1f8724"/></svg>
+      <span style="display: flex; flex-direction: column; line-height: 1.05">
+        <span style="font-size: 8.5px; letter-spacing: 0.12em; color: #6b7175">ИСПЫТАТЕЛЬНАЯ ЛАБОРАТОРИЯ</span>
+        <span style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em">«ВИКИНГ»</span>
+      </span>
+    </a>
+    <button type="button" aria-label="Открыть меню" data-menu-open aria-expanded="false" style="width: 44px; height: 44px; margin-right: -4px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="8" height="8" rx="1.2" fill="#1f8724"/><rect x="11" y="1" width="8" height="8" rx="1.2" fill="#1f8724"/><rect x="1" y="11" width="8" height="8" rx="1.2" fill="#1f8724"/><rect x="11" y="11" width="8" height="8" rx="1.2" fill="#1f8724"/></svg>
+    </button>
+  </div>
+
+  <div class="site-menu" data-menu hidden>
+    <div data-menu-close style="position: fixed; inset: 0; background: rgba(3,3,3,0.32); z-index: 65"></div>
+    <div role="dialog" aria-label="Меню сайта" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: min(760px, calc(100% - 32px)); max-height: calc(100vh - 40px); overflow-y: auto; box-sizing: border-box; background: #ffffff; border-radius: 40px; box-shadow: 0 24px 64px rgba(3,3,3,0.2); padding: 14px 36px 36px; z-index: 70">
+      <div style="display: flex; align-items: center; justify-content: space-between; height: 47px; margin-bottom: 20px">
+        <a href="index.html" style="display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#1f8724" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 3h7M11 3v7L4.8 20.6A1.6 1.6 0 0 0 6.2 23h13.6a1.6 1.6 0 0 0 1.4-2.4L15 10V3"/><path d="M7.6 16.5h10.8"/><circle cx="12" cy="19.6" r="0.9" fill="#1f8724"/><circle cx="15.4" cy="18.4" r="0.6" fill="#1f8724"/></svg>
+          <span style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em">«ВИКИНГ»</span>
+        </a>
+        <button type="button" aria-label="Закрыть меню" data-menu-close style="width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#030303" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 3l14 14M17 3L3 17"/></svg>
+        </button>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 32px 40px">
+        <nav aria-label="Основное меню" style="display: flex; flex-direction: column; gap: 6px">
+          <a href="o-nas.html" style="font-size: 44px; line-height: 1.1; font-weight: 500; letter-spacing: -0.045em; color: #030303; text-decoration: none">О нас</a>
+          <a href="otzyvy.html" style="font-size: 16px; color: #6b7175; text-decoration: none; margin: 0 0 0 2px">Отзывы</a>
+          <a href="voprosy.html" style="font-size: 16px; color: #6b7175; text-decoration: none; margin: 0 0 8px 2px">Вопросы и ответы</a>
+          <a href="katalog.html" style="font-size: 44px; line-height: 1.1; font-weight: 500; letter-spacing: -0.045em; color: #030303; text-decoration: none">Услуги</a>
+          <a href="vakansii.html" style="font-size: 44px; line-height: 1.1; font-weight: 500; letter-spacing: -0.045em; color: #030303; text-decoration: none">Вакансии</a>
+          <a href="dokumenty.html" style="font-size: 44px; line-height: 1.1; font-weight: 500; letter-spacing: -0.045em; color: #030303; text-decoration: none">Документы</a>
+          <a href="blanki.html" style="font-size: 16px; color: #6b7175; text-decoration: none; margin: 0 0 8px 2px">Бланки документов</a>
+          <a href="kontakty.html" style="font-size: 44px; line-height: 1.1; font-weight: 500; letter-spacing: -0.045em; color: #030303; text-decoration: none">Контакты</a>
+        </nav>
+        <div style="display: flex; flex-direction: column; gap: 28px">
+          <nav aria-label="Услуги" style="display: flex; flex-direction: column; gap: 4px">
+            <div style="font-size: 12px; letter-spacing: 0.08em; color: #6b7175; margin-bottom: 8px">УСЛУГИ</div>
+            <a href="analiz-vody.html" style="font-size: 17px; line-height: 1.3; padding: 6px 0; color: #030303; text-decoration: none">Анализ воды</a>
+            <a href="produkty.html" style="font-size: 17px; line-height: 1.3; padding: 6px 0; color: #030303; text-decoration: none">Анализ продуктов питания</a>
+            <a href="instrumentalnyj.html" style="font-size: 17px; line-height: 1.3; padding: 6px 0; color: #030303; text-decoration: none">Инструментальный анализ</a>
+            <a href="ppk.html" style="font-size: 17px; line-height: 1.3; padding: 6px 0; color: #030303; text-decoration: none">Программа производственного контроля</a>
+            <a href="smyvy.html" style="font-size: 17px; line-height: 1.3; padding: 6px 0; color: #030303; text-decoration: none">Гигиенические смывы</a>
+            <a href="sterilnost.html" style="font-size: 17px; line-height: 1.3; padding: 6px 0; color: #030303; text-decoration: none">Стерильность</a>
+          </nav>
+          <div style="display: flex; flex-direction: column; gap: 4px; font-size: 17px; line-height: 1.4">
+            <a href="tel:+74954111723" style="color: #030303; text-decoration: none; font-weight: 500">+7 (495) 411-17-23</a>
+            <a href="tel:+79036630398" style="color: #030303; text-decoration: none; font-weight: 500">+7 (903) 663-03-98</a>
+            <a href="mailto:info@viking-lab.ru" style="color: #6b7175; text-decoration: none">info@viking-lab.ru</a>
+          </div>
+          <a href="kontakty.html#lead" style="align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 26px; border-radius: 99px; background: #1f8724; color: #ffffff; font-size: 16px; text-decoration: none; box-shadow: 0 4px 12px rgba(31,135,36,0.2)">Заказать звонок</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="wrap" style="padding-top: 104px">
+  <h1 class="h1">Почему лаборатория «ВИКИНГ»?</h1>
+
+  <div class="ring" data-ring style="position: relative; width: 1000px; max-width: 100%; height: 800px; margin: 56px auto 0">
+    <svg width="648" height="648" viewBox="0 0 648 648" style="position: absolute; left: 176px; top: 76px" aria-hidden="true">
+      <circle cx="324" cy="324" r="323" fill="none" stroke="#e8ebed" stroke-width="2"></circle>
+      <circle cx="324" cy="324" r="323" fill="none" stroke="#1f8724" stroke-width="2" stroke-linecap="round" stroke-dasharray="0.001 4058.938" data-ring-arc transform="rotate(-90 324 324)" style="transition: stroke-dasharray 0.6s ease"></circle>
+    </svg>
+    <div style="position: absolute; left: 215px; top: 115px; width: 570px; height: 570px; border-radius: 999px; background: linear-gradient(180deg, #fbfcfb 0%, #dfeadb 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 56px 92px">
+      <div data-ring-title style="font-size: 32px; line-height: 1.1; font-weight: 500; letter-spacing: -0.035em; margin-bottom: 16px">Компетентные сотрудники</div>
+      <div data-ring-text style="font-size: 15px; line-height: 1.45; color: #6b7175">В лаборатории работают специалисты по системе менеджмента качества, бактериологи, инженеры-химики, лаборанты, специалисты по отбору проб и инструментальным методам исследований. Сотрудники имеют высшее профильное образование, большой опыт работы и постоянно проходят курсы повышения квалификации. Наши испытатели принимают участие в межлабораторных сличительных испытаниях (МСИ) по методикам, заявленным в области аккредитации ИЛ, подтверждая свою высокую квалификацию.</div>
+    </div>
+        <button type="button" class="nd" data-node="0" aria-label="1. Компетентные сотрудники" style="position:absolute;left:480px;top:56px;width:40px;height:40px;border-radius:99px;cursor:pointer;font:400 14px Inter,Arial,sans-serif;padding:0;border:1px solid #1f8724;background:#1f8724;color:#ffffff">1</button>
+    <div data-label="0" style="position:absolute;font-size:16px;line-height:1.25;left:380px;top:20px;width:240px;text-align:center;color:#030303">Компетентные сотрудники</div>
+    <button type="button" class="nd" data-node="1" aria-label="2. График работы" style="position:absolute;left:760.592px;top:218px;width:40px;height:40px;border-radius:99px;cursor:pointer;font:400 14px Inter,Arial,sans-serif;padding:0;border:1px solid #c3c9cd;background:#ffffff;color:#6b7175">2</button>
+    <div data-label="1" style="position:absolute;font-size:16px;line-height:1.25;left:814.592px;top:218px;width:165px;text-align:left;color:#6b7175">График работы</div>
+    <button type="button" class="nd" data-node="2" aria-label="3. Современное оборудование" style="position:absolute;left:760.592px;top:542px;width:40px;height:40px;border-radius:99px;cursor:pointer;font:400 14px Inter,Arial,sans-serif;padding:0;border:1px solid #c3c9cd;background:#ffffff;color:#6b7175">3</button>
+    <div data-label="2" style="position:absolute;font-size:16px;line-height:1.25;left:814.592px;top:542px;width:165px;text-align:left;color:#6b7175">Современное оборудование</div>
+    <button type="button" class="nd" data-node="3" aria-label="4. Свой автопарк" style="position:absolute;left:480px;top:704px;width:40px;height:40px;border-radius:99px;cursor:pointer;font:400 14px Inter,Arial,sans-serif;padding:0;border:1px solid #c3c9cd;background:#ffffff;color:#6b7175">4</button>
+    <div data-label="3" style="position:absolute;font-size:16px;line-height:1.25;left:380px;top:756px;width:240px;text-align:center;color:#6b7175">Свой автопарк</div>
+    <button type="button" class="nd" data-node="4" aria-label="5. Протоколы испытаний" style="position:absolute;left:199.408px;top:542px;width:40px;height:40px;border-radius:99px;cursor:pointer;font:400 14px Inter,Arial,sans-serif;padding:0;border:1px solid #c3c9cd;background:#ffffff;color:#6b7175">5</button>
+    <div data-label="4" style="position:absolute;font-size:16px;line-height:1.25;left:20.408px;top:542px;width:165px;text-align:right;color:#6b7175">Протоколы испытаний</div>
+    <button type="button" class="nd" data-node="5" aria-label="6. Гибкие цены" style="position:absolute;left:199.408px;top:218px;width:40px;height:40px;border-radius:99px;cursor:pointer;font:400 14px Inter,Arial,sans-serif;padding:0;border:1px solid #c3c9cd;background:#ffffff;color:#6b7175">6</button>
+    <div data-label="5" style="position:absolute;font-size:16px;line-height:1.25;left:20.408px;top:218px;width:165px;text-align:right;color:#6b7175">Гибкие цены</div>
+  </div>
+
+  <div class="lst" style="margin-top: 56px">
+        <div class="card" style="border-radius: 28px; padding: 24px">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px">
+        <span style="width: 36px; height: 36px; border-radius: 99px; background: #1f8724; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 14px">1</span>
+        <h2 class="t3" style="font-size: 22px">Компетентные сотрудники</h2>
+      </div>
+      <p class="m" style="font-size: 15px">В лаборатории работают специалисты по системе менеджмента качества, бактериологи, инженеры-химики, лаборанты, специалисты по отбору проб и инструментальным методам исследований. Сотрудники имеют высшее профильное образование, большой опыт работы и постоянно проходят курсы повышения квалификации. Наши испытатели принимают участие в межлабораторных сличительных испытаниях (МСИ) по методикам, заявленным в области аккредитации ИЛ, подтверждая свою высокую квалификацию.</p>
+    </div>
+    <div class="card" style="border-radius: 28px; padding: 24px">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px">
+        <span style="width: 36px; height: 36px; border-radius: 99px; background: #1f8724; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 14px">2</span>
+        <h2 class="t3" style="font-size: 22px">График работы</h2>
+      </div>
+      <p class="m" style="font-size: 15px">Прием образцов на испытание в лабораторию осуществляется с 9.00 до 17.00 с понедельника по четверг, в пятницу с 9.00 до 16.00. Отдел бактериологических и паразитологических испытаний работает с 9.00 до 21.00 без выходных.</p>
+    </div>
+    <div class="card" style="border-radius: 28px; padding: 24px">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px">
+        <span style="width: 36px; height: 36px; border-radius: 99px; background: #1f8724; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 14px">3</span>
+        <h2 class="t3" style="font-size: 22px">Современное оборудование</h2>
+      </div>
+      <p class="m" style="font-size: 15px">Испытательная лаборатория ООО «ВИКИНГ» оснащена современным лабораторным оборудованием импортного и отечественного производства, которое в установленные сроки проходит поверку, калибровку и аттестацию.</p>
+    </div>
+    <div class="card" style="border-radius: 28px; padding: 24px">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px">
+        <span style="width: 36px; height: 36px; border-radius: 99px; background: #1f8724; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 14px">4</span>
+        <h2 class="t3" style="font-size: 22px">Свой автопарк</h2>
+      </div>
+      <p class="m" style="font-size: 15px">На отбор проб выезжают квалифицированные специалисты на автомобилях лаборатории, которые оборудованы холодильной и морозильной камерой.</p>
+    </div>
+    <div class="card" style="border-radius: 28px; padding: 24px">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px">
+        <span style="width: 36px; height: 36px; border-radius: 99px; background: #1f8724; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 14px">5</span>
+        <h2 class="t3" style="font-size: 22px">Протоколы испытаний</h2>
+      </div>
+      <p class="m" style="font-size: 15px">Мы ценим время наших заказчиков и выполняем лабораторные испытания оперативно, но с соблюдением всех сроков согласно методикам испытаний. Идем навстречу нашим клиентам, стараемся выдать протокол испытаний на следующий после окончания испытаний.</p>
+    </div>
+    <div class="card" style="border-radius: 28px; padding: 24px">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px">
+        <span style="width: 36px; height: 36px; border-radius: 99px; background: #1f8724; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 14px">6</span>
+        <h2 class="t3" style="font-size: 22px">Гибкие цены</h2>
+      </div>
+      <p class="m" style="font-size: 15px">Нам важно, чтобы наш клиент стал постоянным партнером. Для крупных заказчиков при больших объемах предлагаем скидки.</p>
+    </div>
+  </div>
+
+  <div class="pair" style="margin-top: 40px">
+    <div style="min-height: 380px; border-radius: 40px; position: relative; overflow: hidden; background: #e9eef0">
+      <img class="zimg" src="img/img-12-avto.jpg" alt="Автомобиль лаборатории" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+    </div>
+    <div style="min-height: 380px; border-radius: 40px; position: relative; overflow: hidden; background: #e9eef0">
+      <img class="zimg" src="img/img-13-oborudovanie.jpg" alt="Лабораторное оборудование" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: center; margin-top: 56px">
+    <a class="btn" href="katalog.html">Узнать больше о наших услугах</a>
+  </div>
+</section>
+
+<section style="padding-top: 140px">
+  <section data-docs-strip style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; color: #030303; max-width: 1200px; margin: 0 auto; padding: 0 20px; box-sizing: border-box">
+  <h2 style="margin: 0 0 44px; text-align: center; font-size: clamp(34px, 4.6vw, 58px); line-height: 1.05; font-weight: 500; letter-spacing: -0.045em">Нормативные документы</h2>
+  <div style="overflow: hidden; padding: 8px 8px 32px; margin: -8px -8px -32px">
+    <div style="display: flex; gap: 22px; width: 100%; transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.3, 1); transform: translateX(0)" data-docs-track data-max="3">
+              <a href="dokumenty.html" style="flex: 0 0 min(372px, 84%); box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; padding: 24px; border-radius: 32px; background: #fbfcfd; border: 1px solid #edf0f2; box-shadow: 0 4px 20px rgba(96,125,139,0.1); color: #030303; text-decoration: none">
+          <div style="height: 300px; border-radius: 20px; border: 1px solid #e7ecee; background: #f3f6f7; padding: 14px; box-sizing: border-box; overflow: hidden"><img src="img/doc-attestat.jpg" alt="Выписка из реестра RA.RU.22АД70 от 05.12.2019-1" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
+          <div style="font-size: 17px; line-height: 1.3; font-weight: 500; letter-spacing: -0.01em; min-height: 66px">Выписка из реестра RA.RU.22АД70 от 05.12.2019-1</div>
+        </a>
+        <a href="dokumenty.html" style="flex: 0 0 min(372px, 84%); box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; padding: 24px; border-radius: 32px; background: #fbfcfd; border: 1px solid #edf0f2; box-shadow: 0 4px 20px rgba(96,125,139,0.1); color: #030303; text-decoration: none">
+          <div style="height: 300px; border-radius: 20px; border: 1px solid #e7ecee; background: #f3f6f7; padding: 14px; box-sizing: border-box; overflow: hidden"><img src="img/doc-attestat-prilozhenie.jpg" alt="Выписка из реестра RA.RU.22АД70 от 05.12.2019-2" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
+          <div style="font-size: 17px; line-height: 1.3; font-weight: 500; letter-spacing: -0.01em; min-height: 66px">Выписка из реестра RA.RU.22АД70 от 05.12.2019-2</div>
+        </a>
+        <a href="dokumenty.html" style="flex: 0 0 min(372px, 84%); box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; padding: 24px; border-radius: 32px; background: #fbfcfd; border: 1px solid #edf0f2; box-shadow: 0 4px 20px rgba(96,125,139,0.1); color: #030303; text-decoration: none">
+          <div style="height: 300px; border-radius: 20px; border: 1px solid #e7ecee; background: #f3f6f7; padding: 14px; box-sizing: border-box; overflow: hidden"><img src="img/doc-licenziya-1.jpg" alt="Лицензия-1" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
+          <div style="font-size: 17px; line-height: 1.3; font-weight: 500; letter-spacing: -0.01em; min-height: 66px">Лицензия-1</div>
+        </a>
+        <a href="dokumenty.html" style="flex: 0 0 min(372px, 84%); box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; padding: 24px; border-radius: 32px; background: #fbfcfd; border: 1px solid #edf0f2; box-shadow: 0 4px 20px rgba(96,125,139,0.1); color: #030303; text-decoration: none">
+          <div style="height: 300px; border-radius: 20px; border: 1px solid #e7ecee; background: #f3f6f7; padding: 14px; box-sizing: border-box; overflow: hidden"><img src="img/doc-licenziya-2.jpg" alt="Лицензия-2" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
+          <div style="font-size: 17px; line-height: 1.3; font-weight: 500; letter-spacing: -0.01em; min-height: 66px">Лицензия-2</div>
+        </a>
+        <a href="dokumenty.html" style="flex: 0 0 min(372px, 84%); box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; padding: 24px; border-radius: 32px; background: #fbfcfd; border: 1px solid #edf0f2; box-shadow: 0 4px 20px rgba(96,125,139,0.1); color: #030303; text-decoration: none">
+          <div style="height: 300px; border-radius: 20px; border: 1px solid #e7ecee; background: #f3f6f7; padding: 14px; box-sizing: border-box; overflow: hidden"><img src="img/doc-vypiska-licenzij.jpg" alt="Выписка из реестра лицензий от 02.02.2024 г." loading="lazy" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
+          <div style="font-size: 17px; line-height: 1.3; font-weight: 500; letter-spacing: -0.01em; min-height: 66px">Выписка из реестра лицензий от 02.02.2024 г.</div>
+        </a>
+        <a href="dokumenty.html" style="flex: 0 0 min(372px, 84%); box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; padding: 24px; border-radius: 32px; background: #fbfcfd; border: 1px solid #edf0f2; box-shadow: 0 4px 20px rgba(96,125,139,0.1); color: #030303; text-decoration: none">
+          <div style="height: 300px; border-radius: 20px; border: 1px solid #e7ecee; background: #f3f6f7; padding: 14px; box-sizing: border-box; overflow: hidden"><img src="img/doc-sout-1.jpg" alt="СОУТ_Сводная ведомость и перечень мероприятий" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
+          <div style="font-size: 17px; line-height: 1.3; font-weight: 500; letter-spacing: -0.01em; min-height: 66px">СОУТ_Сводная ведомость и перечень мероприятий</div>
+        </a>
+    </div>
+  </div>
+  <div style="display: flex; justify-content: center; align-items: center; gap: 14px; margin-top: 44px">
+    <button type="button" aria-label="Предыдущие документы" data-docs-prev style="width: 48px; height: 48px; border-radius: 99px; border: 1px solid #dfe5e8; background: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; opacity: 0.35">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#030303" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3L5 9l6 6"/></svg>
+    </button>
+    <button type="button" aria-label="Следующие документы" data-docs-next style="width: 48px; height: 48px; border-radius: 99px; border: 1px solid #dfe5e8; background: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; opacity: 1">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#030303" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3l6 6-6 6"/></svg>
+    </button>
+  </div>
+</section>
+</section>
+
+<footer style="font-family: Inter, 'Helvetica Neue', Arial, sans-serif; color: #030303; max-width: 1200px; margin: 0 auto; padding: 96px 20px 24px; box-sizing: border-box">
+  <div style="background: #fbfcfd; border: 1px solid #edf0f2; border-radius: 40px; box-shadow: 0 4px 20px rgba(96,125,139,0.1); padding: 40px 40px 28px; box-sizing: border-box">
+    <div style="display: flex; flex-wrap: wrap; gap: 40px 56px; justify-content: space-between">
+      <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 16px; max-width: 360px">
+        <a href="index.html" style="display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none">
+          <svg width="30" height="30" viewBox="0 0 26 26" fill="none" stroke="#1f8724" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 3h7M11 3v7L4.8 20.6A1.6 1.6 0 0 0 6.2 23h13.6a1.6 1.6 0 0 0 1.4-2.4L15 10V3"/><path d="M7.6 16.5h10.8"/><circle cx="12" cy="19.6" r="0.9" fill="#1f8724"/><circle cx="15.4" cy="18.4" r="0.6" fill="#1f8724"/></svg>
+          <span style="font-size: 22px; font-weight: 600; letter-spacing: -0.03em">«ВИКИНГ»</span>
+        </a>
+        <p style="margin: 0; font-size: 16px; line-height: 1.4; color: #6b7175">Испытательная лаборатория «Викинг». Работаем только с юридическими лицами</p>
+      </div>
+      <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 1.4">
+        <span>г. Москва, ул. Летчика Бабушкина, д. 32, корп. 3</span>
+        <span style="color: #6b7175">пн-чт 9:00-18:00, пт 9:00-17:00</span>
+        <a href="tel:+74954111723" style="color: #030303; text-decoration: none; font-weight: 500; margin-top: 10px">+7 (495) 411-17-23</a>
+        <a href="tel:+79036630398" style="color: #030303; text-decoration: none; font-weight: 500">+7 (903) 663-03-98</a>
+        <a href="mailto:info@viking-lab.ru" style="color: #1f8724; text-decoration: none">info@viking-lab.ru</a>
+      </div>
+      <nav aria-label="Служебные ссылки" style="flex: 0 1 220px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.4">
+        <a href="voprosy.html" style="color: #030303; text-decoration: none">Вопросы и ответы</a>
+        <a href="blanki.html" style="color: #030303; text-decoration: none">Бланки документов</a>
+        <a href="politika.html" style="color: #030303; text-decoration: none">Политика конфиденциальности</a>
+        <a href="karta-sajta.html" style="color: #030303; text-decoration: none">Карта сайта</a>
+      </nav>
+    </div>
+    <div style="margin-top: 36px; padding-top: 20px; border-top: 1px solid #e7ecee; font-size: 13px; line-height: 1.4; color: #6b7175">Copyright © 2026 «ВИКИНГ» – лабораторно-инструментальные исследования</div>
+  </div>
+</footer>
+</div>
+<script type="application/json" id="ring-data">[{"title": "Компетентные сотрудники", "text": "В лаборатории работают специалисты по системе менеджмента качества, бактериологи, инженеры-химики, лаборанты, специалисты по отбору проб и инструментальным методам исследований. Сотрудники имеют высшее профильное образование, большой опыт работы и постоянно проходят курсы повышения квалификации. Наши испытатели принимают участие в межлабораторных сличительных испытаниях (МСИ) по методикам, заявленным в области аккредитации ИЛ, подтверждая свою высокую квалификацию."}, {"title": "График работы", "text": "Прием образцов на испытание в лабораторию осуществляется с 9.00 до 17.00 с понедельника по четверг, в пятницу с 9.00 до 16.00. Отдел бактериологических и паразитологических испытаний работает с 9.00 до 21.00 без выходных."}, {"title": "Современное оборудование", "text": "Испытательная лаборатория ООО «ВИКИНГ» оснащена современным лабораторным оборудованием импортного и отечественного производства, которое в установленные сроки проходит поверку, калибровку и аттестацию."}, {"title": "Свой автопарк", "text": "На отбор проб выезжают квалифицированные специалисты на автомобилях лаборатории, которые оборудованы холодильной и морозильной камерой."}, {"title": "Протоколы испытаний", "text": "Мы ценим время наших заказчиков и выполняем лабораторные испытания оперативно, но с соблюдением всех сроков согласно методикам испытаний. Идем навстречу нашим клиентам, стараемся выдать протокол испытаний на следующий после окончания испытаний."}, {"title": "Гибкие цены", "text": "Нам важно, чтобы наш клиент стал постоянным партнером. Для крупных заказчиков при больших объемах предлагаем скидки."}]</script>
+</body>
+</html>
