@@ -189,9 +189,16 @@ body.page-voprosy .h1,body.page-blanki .h1,body.page-politika .h1,body.page-kart
 .legal-note svg{color:var(--green)}
 .hero-legal{display:inline-flex;align-items:center;gap:10px;margin:26px 0 0;padding:10px 18px;border-radius:99px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px);font-size:15px;line-height:1.35;color:#fff;text-align:left}
 /* ---- автопарк ---- */
-.fleet{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:22px}
-.fleet-i{position:relative;border-radius:32px;overflow:hidden;background:#e9eef0;box-shadow:var(--sh)}
-.fleet-i:first-child{grid-column:span 2;grid-row:span 2}
-.fleet-i img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-@media(max-width:900px){.fleet{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:180px}}
-@media(max-width:560px){.fleet{grid-template-columns:1fr;grid-auto-rows:220px}.fleet-i:first-child{grid-column:auto;grid-row:auto}}
+.fleet{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:28px;align-items:center;padding:28px;border-radius:32px;background:var(--card);border:1px solid #edf0f2;box-shadow:var(--sh)}
+.fleet-txt{padding-left:8px}
+.fleet-nav{display:flex;gap:8px;margin-top:22px}
+.fleet-btn{width:40px;height:40px;border-radius:99px;border:1px solid #e7ecee;background:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0;transition:border-color .2s,opacity .2s}
+.fleet-btn:hover{border-color:var(--green)}
+.fleet-btn[disabled]{opacity:.35;cursor:default}
+.fleet-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;border-radius:20px}
+.fleet-track::-webkit-scrollbar{display:none}
+.fleet-i{flex:0 0 240px;aspect-ratio:4/3;padding:0;border:0;border-radius:20px;overflow:hidden;background:#e9eef0;cursor:zoom-in;scroll-snap-align:start}
+.fleet-i img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.22,.8,.3,1)}
+.fleet-i:hover img{transform:scale(1.05)}
+@media(max-width:900px){.fleet{grid-template-columns:1fr;gap:20px;padding:22px}.fleet-txt{padding-left:0}.fleet-i{flex-basis:200px}}
+@media print{.fleet-track{flex-wrap:wrap;overflow:visible}.fleet-i{flex-basis:150px}.fleet-nav{display:none}}

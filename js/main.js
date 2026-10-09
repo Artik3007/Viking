@@ -23,6 +23,8 @@
     var dots = Array.prototype.slice.call(document.querySelectorAll('[data-dot]'));
     var W = 'min(765px, 84vw)';
     var cur = 0;
+    var drag = 0;        // смещение пальцем/мышью во время свайпа, px
+    var dragging = false;
     function renderCarousel() {
       slides.forEach(function (el, k) {
         var off = k - cur, tf, op, z, ev;
@@ -34,11 +36,12 @@
           tf = 'translateX(calc(' + W + ' * ' + off + ' + ' + (24 * off) + 'px)) scale(0.9)';
           op = 0; z = 1; ev = 'none';
         }
-        el.style.transform = tf;
+        el.style.transition = dragging ? 'none' : 'transform .6s cubic-bezier(.22,.8,.3,1),opacity .6s';
+        el.style.transform = (drag ? 'translateX(' + drag + 'px) ' : '') + tf;
         el.style.opacity = op;
         el.style.zIndex = z;
         el.style.pointerEvents = ev;
-        el.style.cursor = off === 0 ? 'default' : 'pointer';
+        el.style.cursor = off === 0 ? 'grab' : 'pointer';
         el.style.transformOrigin = off === 0 ? '' : (off > 0 ? 'left' : 'right') + ' center';
         var link = el.querySelector('.car-link');
         if (link) { link.style.opacity = off === 0 ? 1 : 0; link.style.pointerEvents = off === 0 ? 'auto' : 'none'; }
@@ -49,12 +52,80 @@
         s.style.background = k === cur ? '#030303' : '#d3d9dc';
       });
     }
+    function go(k) { cur = Math.max(0, Math.min(slides.length - 1, k)); renderCarousel(); }
+
+    var moved = false;   // был ли свайп — тогда клик после него не срабатывает
     slides.forEach(function (el, k) {
-      el.addEventListener('click', function () { if (k !== cur) { cur = k; renderCarousel(); } });
+      el.addEventListener('click', function () { if (!moved && k !== cur) go(k); });
     });
     dots.forEach(function (d, k) {
-      d.addEventListener('click', function () { cur = k; renderCarousel(); });
+      d.addEventListener('click', function () { go(k); });
     });
+
+    /* Свайп пальцем и перетаскивание мышью */
+    car.style.touchAction = 'pan-y';
+    car.style.userSelect = 'none';
+    car.querySelectorAll('img').forEach(function (im) { im.draggable = false; });
+    var sx = 0, sy = 0, pid = null, horiz = null;
+    car.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      pid = e.pointerId; sx = e.clientX; sy = e.clientY; horiz = null; moved = false;
+    });
+    car.addEventListener('pointermove', function (e) {
+      if (e.pointerId !== pid) return;
+      var dx = e.clientX - sx, dy = e.clientY - sy;
+      if (horiz === null) {
+        if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+        horiz = Math.abs(dx) > Math.abs(dy);
+        if (!horiz) { pid = null; return; }   // вертикальный жест — это прокрутка страницы
+        dragging = true;
+        try { car.setPointerCapture(pid); } catch (err) {}
+      }
+      moved = true;
+      // у крайних слайдов тянется с сопротивлением
+      var edge = (cur === 0 && dx > 0) || (cur === slides.length - 1 && dx < 0);
+      drag = edge ? dx / 3 : dx;
+      renderCarousel();
+    });
+    function endDrag(e) {
+      if (e.pointerId !== pid) return;
+      pid = null;
+      if (!dragging) return;
+      dragging = false;
+      var limit = Math.min(120, car.clientWidth * 0.15);
+      var dir = drag < -limit ? 1 : drag > limit ? -1 : 0;
+      drag = 0;
+      go(cur + dir);
+      setTimeout(function () { moved = false; }, 0);
+    }
+    car.addEventListener('pointerup', endDrag);
+    car.addEventListener('pointercancel', endDrag);
+    // клик по ссылке «Подробнее» после свайпа не должен открывать страницу
+    car.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
+
+    /* Свайп двумя пальцами по тачпаду (горизонтальная прокрутка) */
+    var acc = 0, lock = false, accTimer;
+    car.addEventListener('wheel', function (e) {
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      e.preventDefault();
+      if (lock) return;
+      acc += e.deltaX;
+      clearTimeout(accTimer);
+      accTimer = setTimeout(function () { acc = 0; }, 200);
+      if (Math.abs(acc) > 50) {
+        go(cur + (acc > 0 ? 1 : -1));
+        acc = 0; lock = true;
+        setTimeout(function () { lock = false; }, 650);
+      }
+    }, { passive: false });
+
+    /* Стрелки клавиатуры, когда карусель в фокусе */
+    car.tabIndex = 0;
+    car.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') go(cur + 1);
+      if (e.key === 'ArrowLeft') go(cur - 1);
+    });
+
     renderCarousel();
   }
 
@@ -131,6 +202,54 @@
       if (e.key === 'ArrowRight') show(o + 1);
     });
   }
+
+  /* ---------- Автопарк: лента фото и просмотр ---------- */
+  document.querySelectorAll('[data-fleet]').forEach(function (box) {
+    var track = box.querySelector('[data-fleet-track]');
+    var prev = box.querySelector('[data-fleet-prev]');
+    var next = box.querySelector('[data-fleet-next]');
+    var items = Array.prototype.slice.call(track.querySelectorAll('[data-fleet-open]'));
+    function step() { return items[0] ? items[0].getBoundingClientRect().width + 12 : 240; }
+    function upd() {
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+    }
+    prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+    track.addEventListener('scroll', upd, { passive: true });
+    window.addEventListener('resize', upd);
+    upd();
+
+    var view = document.createElement('div');
+    view.className = 'lb'; view.hidden = true;
+    view.setAttribute('role', 'dialog'); view.setAttribute('aria-label', 'Фото автомобиля');
+    view.innerHTML = '<button type="button" class="lb-bg" data-x aria-label="Закрыть"></button>' +
+      '<figure class="lb-fig"><img alt=""><figcaption><span data-t></span><span class="lb-n" data-n></span></figcaption></figure>' +
+      '<button type="button" class="lb-btn lb-prev" data-p aria-label="Предыдущее фото"><svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="#030303" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3L5 9l6 6"></path></svg></button>' +
+      '<button type="button" class="lb-btn lb-next" data-nx aria-label="Следующее фото"><svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="#030303" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3l6 6-6 6"></path></svg></button>' +
+      '<button type="button" class="lb-btn lb-close" data-x aria-label="Закрыть"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#030303" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 4l10 10M14 4L4 14"></path></svg></button>';
+    document.body.appendChild(view);
+    var vImg = view.querySelector('img'), vT = view.querySelector('[data-t]'), vN = view.querySelector('[data-n]');
+    var cur = 0;
+    function show(k) {
+      cur = (k + items.length) % items.length;
+      var im = items[cur].querySelector('img');
+      vImg.src = im.src; vImg.alt = im.alt;
+      vT.textContent = im.alt; vN.textContent = (cur + 1) + ' из ' + items.length;
+      view.hidden = false; document.documentElement.style.overflow = 'hidden';
+    }
+    function close() { view.hidden = true; document.documentElement.style.overflow = ''; }
+    items.forEach(function (b, k) { b.addEventListener('click', function () { show(k); }); });
+    view.querySelectorAll('[data-x]').forEach(function (b) { b.addEventListener('click', close); });
+    view.querySelector('[data-p]').addEventListener('click', function () { show(cur - 1); });
+    view.querySelector('[data-nx]').addEventListener('click', function () { show(cur + 1); });
+    document.addEventListener('keydown', function (e) {
+      if (view.hidden) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(cur - 1);
+      if (e.key === 'ArrowRight') show(cur + 1);
+    });
+  });
 
   /* ---------- Клавиша Esc закрывает меню и просмотр ---------- */
   document.addEventListener('keydown', function (e) {
